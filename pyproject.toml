@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "chattysock"
+version = "0.1.0"
+description = ""
+authors = ["Natalia Teplynina <nt@mnt9.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^4.1"
+channels = "^3.0.5"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^5.0.4"
+python-dotenv = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
