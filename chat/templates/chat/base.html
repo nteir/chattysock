@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n bootstrap4 %}
 {% get_current_language as LANGUAGE_CODE %}
 
 <!DOCTYPE html>
@@ -7,9 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
     <title>Document</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+    <main role="main" class="container wrapper flex-grow-1">
     {% block content %}{% endblock %}
+    </main>
 </body>
 </html>
