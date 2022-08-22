@@ -2,5 +2,18 @@
 {% load i18n %}
 
 {% block content %}
+<div id="user-rc"></div>
 
+{{ room_name|json_script:"room-name" }}
+<script>
+    const roomName = JSON.parse(document.getElementById('room-name').textContent);
+    const wsURL = 'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
+    //console.log(wsURL);
+    const chatSocket = new WebSocket(wsURL);
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        console.log(data);
+        document.querySelector('#user-rc').innerHTML = (data.tester);
+    }
+</script>
 {% endblock %}
