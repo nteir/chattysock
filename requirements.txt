@@ -21,6 +21,7 @@ pyasn1-modules==0.2.8; python_full_version >= "3.6.7" and python_version >= "3.7
 pyasn1==0.4.8; python_full_version >= "3.6.7" and python_version >= "3.7"
 pycparser==2.21; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.7"
 pyopenssl==22.0.0; python_full_version >= "3.6.7" and python_version >= "3.7"
+python-dotenv==0.20.0; python_version >= "3.5"
 service-identity==21.1.0; python_full_version >= "3.6.7" and python_version >= "3.7"
 six==1.16.0; python_full_version >= "3.6.7" and python_version >= "3.7"
 soupsieve==2.3.2.post1; python_full_version >= "3.6.0" and python_version >= "3.7"
