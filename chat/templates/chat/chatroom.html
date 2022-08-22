@@ -2,18 +2,41 @@
 {% load i18n %}
 
 {% block content %}
-<div id="user-rc"></div>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class = "col-6">
+            <form>
+                <div class="form-group">
+                    <label class="h4 pt-5">Chatroom {{ room_name }}</label>
+                    <textarea class="form-control" id="chat-text" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="input" type="text"></br>
+                </div>
+            </form>
+            <input class="btn btn-dark btn-lg btn-block" id="submit" type="button" value="Send">
+
+        </div>
+    </div>
+</div>
 
 {{ room_name|json_script:"room-name" }}
 <script>
+    document.querySelector('#submit').onclick = function(e) {
+        const messageInputDom = document.querySelector('#input');
+        const message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
+        messageInputDom.value = '';
+    };
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
     const wsURL = 'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
-    //console.log(wsURL);
     const chatSocket = new WebSocket(wsURL);
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
         console.log(data);
-        document.querySelector('#user-rc').innerHTML = (data.tester);
-    }
+        document.querySelector('#chat-text').value += (data.message + '\n');
+    };
 </script>
 {% endblock %}
