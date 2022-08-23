@@ -13,6 +13,7 @@ gunicorn = "^20.1.0"
 dj-database-url = "^1.0.0"
 psycopg2-binary = "^2.9.3"
 python-dotenv = "^0.20.0"
+channels-redis = "^3.4.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"
